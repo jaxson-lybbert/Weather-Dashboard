@@ -14,9 +14,11 @@ submitEl.on("click", function (e) {
   var citySearch;
   citySearch = $('input[name="city-name"]').val();
   localStorage.setItem("CityName", citySearch);
+  cityConvert();
 
   var recentCityButton = $("<button>");
   recentCityButton.addClass("recent-search");
+  recentCityButton.addClass(citySearch);
   recentCityButton.text(citySearch);
   if ($("aside").children(0) == true) {
     $("button").append(recentCityButton);
@@ -24,3 +26,22 @@ submitEl.on("click", function (e) {
     $("aside").append(recentCityButton);
   }
 });
+
+function cityConvert() {
+  var cityName = window.localStorage.getItem("CityName");
+  fetch(
+    "http://api.openweathermap.org/geo/1.0/direct?q=" +
+      cityName +
+      "&limit=5&appid=25adc732fcb0ebbfd462bcfae063f791"
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      var cityLat = data[0].lat;
+      var cityLon = data[0].lon;
+      window.localStorage.setItem("CityLat", cityLat);
+      window.localStorage.setItem("CityLon", cityLon);
+    });
+}
