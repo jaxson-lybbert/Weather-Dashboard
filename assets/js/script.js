@@ -6,7 +6,6 @@
 
 var submitEl = $("#submit-button");
 var forecastEl = $("#forecast");
-var searchHistoryEl = $("button");
 
 // Stores city name to local storage when the submit button is clicked and adds to recently searched cities list
 submitEl.on("click", function (e) {
