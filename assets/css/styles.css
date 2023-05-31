@@ -6,6 +6,7 @@
 }
 
 h1 {
+  padding: 5px;
   text-align: center;
   background-color: #3590f3;
   color: white;
@@ -19,11 +20,25 @@ h2 {
   font-weight: 500;
 }
 
+.recent-search {
+  text-align: center;
+  margin-top: 10px;
+  display: block;
+  padding: 5px;
+  border: none;
+  background-color: rgb(194, 193, 193);
+  border-radius: 5px;
+}
+
+.recent-search:hover {
+  background-color: rgb(139, 139, 139);
+}
+
 #submit-button {
   padding: 5px;
   border: none;
   color: white;
-  background-color: #4a9df5;
+  background-color: #62bfed;
   border-radius: 5px;
 }
 
