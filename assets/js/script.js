@@ -10,19 +10,20 @@ var forecastEl = $("#forecast");
 // Stores city name to local storage when the submit button is clicked and adds to recently searched cities list
 submitEl.on("click", function (e) {
   e.preventDefault();
-
   var citySearch;
-  citySearch = $('input[name="city-name"]').val();
-  localStorage.setItem("CityName", citySearch);
+  if ($('input[name="city-name"]').val() == "") {
+    return;
+  } else {
+    citySearch = $('input[name="city-name"]').val();
+    localStorage.setItem("CityName", citySearch);
 
-  cityConvert();
-  getForecast();
-
-  var recentCityButton = $("<button>");
-  recentCityButton.addClass("recent-search");
-  recentCityButton.addClass(citySearch);
-  recentCityButton.text(citySearch);
-  $("aside").append(recentCityButton);
+    var recentCityButton = $("<button>");
+    recentCityButton.addClass("recent-search");
+    recentCityButton.addClass(citySearch);
+    recentCityButton.text(citySearch);
+    $("aside").append(recentCityButton);
+    cityConvert();
+  }
 });
 
 // Converts stored city name to lat/lon coordinates
@@ -42,6 +43,7 @@ function cityConvert() {
       var cityLon = data[0].lon;
       window.localStorage.setItem("CityLat", cityLat);
       window.localStorage.setItem("CityLon", cityLon);
+      getForecast();
     });
 }
 
