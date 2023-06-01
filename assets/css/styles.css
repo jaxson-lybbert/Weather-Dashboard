@@ -20,6 +20,10 @@ h2 {
   font-weight: 500;
 }
 
+ul {
+  list-style-type: none;
+}
+
 .recent-search {
   text-align: center;
   margin-top: 10px;

@@ -14,7 +14,9 @@ submitEl.on("click", function (e) {
   var citySearch;
   citySearch = $('input[name="city-name"]').val();
   localStorage.setItem("CityName", citySearch);
+
   cityConvert();
+  getForecast();
 
   var recentCityButton = $("<button>");
   recentCityButton.addClass("recent-search");
@@ -23,6 +25,7 @@ submitEl.on("click", function (e) {
   $("aside").append(recentCityButton);
 });
 
+// Converts stored city name to lat/lon coordinates
 function cityConvert() {
   var cityName = window.localStorage.getItem("CityName");
   fetch(
@@ -39,5 +42,33 @@ function cityConvert() {
       var cityLon = data[0].lon;
       window.localStorage.setItem("CityLat", cityLat);
       window.localStorage.setItem("CityLon", cityLon);
+    });
+}
+
+// Gets 5-day forecast based on lat/lon coordinates
+function getForecast() {
+  var cityLat = window.localStorage.getItem("CityLat");
+  var cityLon = window.localStorage.getItem("CityLon");
+  var cityName = window.localStorage.getItem("CityName");
+
+  fetch(
+    "http://api.openweathermap.org/data/2.5/forecast?lat=" +
+      cityLat +
+      "&lon=" +
+      cityLon +
+      "&units=imperial&appid=25adc732fcb0ebbfd462bcfae063f791"
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      var roundedTemp = Math.round(data.list[0].main.temp);
+      $(".selectedCity").text(cityName + " " + data.list[0].dt_txt);
+      $(".currentTemp").text("Temp: " + roundedTemp + " \u00B0F");
+      $(".currentWind").text("Wind: " + data.list[0].wind.speed + " MPH");
+      $(".currentHumidity").text(
+        "Humidity: " + data.list[0].main.humidity + "%"
+      );
     });
 }
