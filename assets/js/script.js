@@ -23,7 +23,16 @@ submitEl.on("click", function (e) {
     recentCityButton.text(citySearch);
     $("aside").append(recentCityButton);
     cityConvert();
+
+    $('input[name="city-name"]').val("");
   }
+});
+
+$("#city-search").on("click", ".recent-search", function (e) {
+  var cityName = e.target.textContent;
+
+  window.localStorage.setItem("CityName", cityName);
+  cityConvert();
 });
 
 // Converts stored city name to lat/lon coordinates
@@ -66,11 +75,36 @@ function getForecast() {
     .then(function (data) {
       console.log(data);
       var roundedTemp = Math.round(data.list[0].main.temp);
-      $(".selectedCity").text(cityName + " " + data.list[0].dt_txt);
-      $(".currentTemp").text("Temp: " + roundedTemp + " \u00B0F");
+      var iconID = data.list[0].weather[0].icon;
+      var iconURL = "http://openweathermap.org/img/w/" + iconID + ".png";
+
+      // Displays Current Weather
+      $("#icon").empty();
+      $("#icon").append($("<img>", { src: iconURL, alt: "Weather Icon" }));
+
+      $(".selectedCity").text(cityName + " " + data.list[0].dt_txt + " UTC");
+      $(".currentTemp").text("Temp: " + roundedTemp + " \u00B0F ");
       $(".currentWind").text("Wind: " + data.list[0].wind.speed + " MPH");
       $(".currentHumidity").text(
         "Humidity: " + data.list[0].main.humidity + "%"
       );
+
+      // Display 5-day forecast
+      for (var i = 8; i < 40; i = i + 8) {
+        roundedTemp = Math.round(data.list[i].main.temp);
+        iconID = data.list[i].weather[0].icon;
+        iconURL = "http://openweathermap.org/img/w/" + iconID + ".png";
+
+        $("#icon-" + i).empty();
+        $("#icon-" + i).append(
+          $("<img>", { src: iconURL, alt: "Weather Icon" })
+        );
+        $(".date-" + i).text(data.list[i].dt_txt + " UTC");
+        $(".temp-" + i).text("Temp: " + roundedTemp + " \u00B0F ");
+        $(".wind-" + i).text("Wind: " + data.list[i].wind.speed + " MPH");
+        $(".humidity-" + i).text(
+          "Humidity: " + data.list[i].main.humidity + "%"
+        );
+      }
     });
 }
