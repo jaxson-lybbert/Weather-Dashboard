@@ -32,10 +32,12 @@ ul {
   border: none;
   background-color: rgb(194, 193, 193);
   border-radius: 5px;
+  width: 150px;
 }
 
 .recent-search:hover {
   background-color: rgb(139, 139, 139);
+  transition: all 0.4s ease-in-out;
 }
 
 #submit-button {
@@ -44,8 +46,34 @@ ul {
   color: white;
   background-color: #62bfed;
   border-radius: 5px;
+  width: 150px;
 }
 
 #submit-button:hover {
   background-color: #0e65c2;
+  transition: all 0.4s ease-in-out;
 }
+
+#city-search {
+  float: left;
+  width: 20%;
+}
+
+#currentWeather {
+  float: left;
+  padding-right: 25%;
+  border: #62bfed 1px;
+  border-style: solid;
+}
+
+.specificDay {
+  background-color: #0e65c2;
+  color: white;
+}
+
+/*I cannot seem to get this to do what I want*/
+/* .specificDay {
+  height: 10%;
+  width: 10%;
+  background-color: #7eb9f7;
+} */

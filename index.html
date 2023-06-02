@@ -20,79 +20,97 @@
     </header>
 
     <main>
-      <aside id="city-search">
-        <h2>Search for a City:</h2>
-        <form>
-          <input
-            type="text"
-            id="city-name"
-            name="city-name"
-            placeholder="San Diego"
-          /><br /><br />
-          <input type="submit" id="submit-button" value="Submit" />
-        </form>
-      </aside>
+      <section class="container">
+        <div class="row">
+          <aside id="city-search" class="col-sm-12 col-lg-4">
+            <h2>Search for a City:</h2>
+            <form>
+              <input
+                type="text"
+                id="city-name"
+                name="city-name"
+                placeholder="San Diego"
+              /><br /><br />
+              <input type="submit" id="submit-button" value="Submit" />
+            </form>
+          </aside>
 
-      <!--City weather info will go here-->
-      <div id="currentWeather">
-        <span id="icon"></span>
-        <h2 class="selectedCity cityName cityDate citySun"></h2>
-        <ul>
-          <li class="currentTemp"></li>
-          <li class="currentWind"></li>
-          <li class="currentHumidity"></li>
-        </ul>
-      </div>
+          <!--City weather info will go here-->
+          <div id="currentWeather" class="col-sm-12 col-lg-7">
+            <span id="icon"></span>
+            <h2 class="selectedCity cityName cityDate citySun"></h2>
+            <ul>
+              <li class="currentTemp"></li>
+              <li class="currentWind"></li>
+              <li class="currentHumidity"></li>
+            </ul>
+          </div>
+        </div>
 
-      <!--This is for the 5 day forcast-->
-      <article id="forecast">
-        <h3>5-Day Forecast</h3>
-        <div id="2">
-          <p class="date-8"></p>
-          <ul>
-            <li class="sun-8"><span id="icon-8"></span></li>
-            <li class="temp-8"></li>
-            <li class="wind-8"></li>
-            <li class="humidity-8"></li>
-          </ul>
+        <!--This is for the 5 day forcast-->
+        <div class="row justify-content-end">
+          <article
+            id="forecast"
+            class="col-lg-9 col-sm-12 hstack gap-3 pe-4 my-4 me-5"
+          >
+            <h3>5-Day Forecast</h3>
+            <div id="0" class="specificDay p-2">
+              <p class="date-0"></p>
+              <ul>
+                <li class="sun-0"><span id="icon-0"></span></li>
+                <li class="temp-0"></li>
+                <li class="wind-0"></li>
+                <li class="humidity-0"></li>
+              </ul>
+            </div>
+            <div id="2" class="specificDay p-2">
+              <p class="date-8"></p>
+              <ul>
+                <li class="sun-8"><span id="icon-8"></span></li>
+                <li class="temp-8"></li>
+                <li class="wind-8"></li>
+                <li class="humidity-8"></li>
+              </ul>
+            </div>
+            <div id="3" class="specificDay p-2">
+              <p class="date-16"></p>
+              <ul>
+                <li class="sun-16"><span id="icon-16"></span></li>
+                <li class="temp-16"></li>
+                <li class="wind-16"></li>
+                <li class="humidity-16"></li>
+              </ul>
+            </div>
+            <div id="4" class="specificDay p-2">
+              <p class="date-24"></p>
+              <ul>
+                <li class="sun-24"><span id="icon-24"></span></li>
+                <li class="temp-24"></li>
+                <li class="wind-24"></li>
+                <li class="humidity-24"></li>
+              </ul>
+            </div>
+            <div id="5" class="specificDay p-2">
+              <p class="date-32"></p>
+              <ul>
+                <li class="sun-32"><span id="icon-32"></span></li>
+                <li class="temp-32"></li>
+                <li class="wind-32"></li>
+                <li class="humidity-32"></li>
+              </ul>
+            </div>
+            <!-- <div id="6" class="specificDay p-2">
+              <p class="date-40"></p>
+              <ul>
+                <li class="sun-40"><span id="icon-40"></span></li>
+                <li class="temp-40"></li>
+                <li class="wind-40"></li>
+                <li class="humidity-40"></li>
+              </ul>
+            </div> -->
+          </article>
         </div>
-        <div id="3">
-          <p class="date-16"></p>
-          <ul>
-            <li class="sun-16"><span id="icon-16"></span></li>
-            <li class="temp-16"></li>
-            <li class="wind-16"></li>
-            <li class="humidity-16"></li>
-          </ul>
-        </div>
-        <div id="4">
-          <p class="date-24"></p>
-          <ul>
-            <li class="sun-24"><span id="icon-24"></span></li>
-            <li class="temp-24"></li>
-            <li class="wind-24"></li>
-            <li class="humidity-24"></li>
-          </ul>
-        </div>
-        <div id="5">
-          <p class="date-32"></p>
-          <ul>
-            <li class="sun-32"><span id="icon-32"></span></li>
-            <li class="temp-32"></li>
-            <li class="wind-32"></li>
-            <li class="humidity-32"></li>
-          </ul>
-        </div>
-        <div id="6">
-          <p class="date-40"></p>
-          <ul>
-            <li class="sun-40"><span id="icon-40"></span></li>
-            <li class="temp-40"></li>
-            <li class="wind-40"></li>
-            <li class="humidity-40"></li>
-          </ul>
-        </div>
-      </article>
+      </section>
     </main>
 
     <script
