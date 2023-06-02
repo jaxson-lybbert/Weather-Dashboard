@@ -79,7 +79,7 @@ function getForecast() {
       console.log(data);
       var roundedTemp = Math.round(data.main.temp);
       var iconID = data.weather[0].icon;
-      var iconURL = "http://openweathermap.org/img/w/" + iconID + ".png";
+      var iconURL = "https://openweathermap.org/img/w/" + iconID + ".png";
 
       // Displays Current Weather
       $("#icon").empty();
@@ -104,7 +104,7 @@ function getForecast() {
       console.log(data);
       var roundedTemp = Math.round(data.main.temp);
       var iconID = data.weather[0].icon;
-      var iconURL = "http://openweathermap.org/img/w/" + iconID + ".png";
+      var iconURL = "https://openweathermap.org/img/w/" + iconID + ".png";
 
       // Displays Current Weather
       $("#icon").empty();
@@ -129,7 +129,7 @@ function getForecast() {
       console.log(data);
       var roundedTemp = Math.round(data.list[0].main.temp);
       var iconID = data.list[0].weather[0].icon;
-      var iconURL = "http://openweathermap.org/img/w/" + iconID + ".png";
+      var iconURL = "https://openweathermap.org/img/w/" + iconID + ".png";
       var iconURL = "https://openweathermap.org/img/w/" + iconID + ".png";
 
       // Displays Current Weather
