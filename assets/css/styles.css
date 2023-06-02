@@ -49,3 +49,26 @@ ul {
 #submit-button:hover {
   background-color: #0e65c2;
 }
+
+#city-search {
+  float: left;
+  width: 20%;
+}
+
+#currentWeather {
+  float: left;
+  padding-right: 25%;
+  border:#62bfed 3px;
+  border-style: solid;
+}
+
+/*I cannot seem to get this to do what I want*/
+/* .specificDay {
+  height: 10%;
+  width: 10%;
+  background-color:#7eb9f7
+} */
+
+
+
+
