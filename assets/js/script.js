@@ -39,7 +39,7 @@ $("#city-search").on("click", ".recent-search", function (e) {
 function cityConvert() {
   var cityName = window.localStorage.getItem("CityName");
   fetch(
-    "http://api.openweathermap.org/geo/1.0/direct?q=" +
+    "https://api.openweathermap.org/geo/1.0/direct?q=" +
       cityName +
       "&limit=5&appid=25adc732fcb0ebbfd462bcfae063f791"
   )
@@ -63,7 +63,7 @@ function getForecast() {
   var cityName = window.localStorage.getItem("CityName");
 
   fetch(
-    "http://api.openweathermap.org/data/2.5/forecast?lat=" +
+    "https://api.openweathermap.org/data/2.5/forecast?lat=" +
       cityLat +
       "&lon=" +
       cityLon +
@@ -76,7 +76,7 @@ function getForecast() {
       console.log(data);
       var roundedTemp = Math.round(data.list[0].main.temp);
       var iconID = data.list[0].weather[0].icon;
-      var iconURL = "http://openweathermap.org/img/w/" + iconID + ".png";
+      var iconURL = "https://openweathermap.org/img/w/" + iconID + ".png";
 
       // Displays Current Weather
       $("#icon").empty();
@@ -93,7 +93,7 @@ function getForecast() {
       for (var i = 8; i < 40; i = i + 8) {
         roundedTemp = Math.round(data.list[i].main.temp);
         iconID = data.list[i].weather[0].icon;
-        iconURL = "http://openweathermap.org/img/w/" + iconID + ".png";
+        iconURL = "https://openweathermap.org/img/w/" + iconID + ".png";
 
         $("#icon-" + i).empty();
         $("#icon-" + i).append(
